@@ -266,7 +266,6 @@ Defaults insults
 Install dependencies to run the script: `pacman -S git gum base-devel`
 
 ```
-pacman -S git
 git clone https://github.com/IVSOP/linux-setup
 cd linux-setup
 ./setup.sh
