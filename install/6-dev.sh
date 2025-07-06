@@ -11,6 +11,11 @@ sudo -u $USER_NAME curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | s
 
 cp $DOTFILES_LOCATION/home_dotfiles/.zsh* .
 
+# rust has weird instalation, need to update the env
+
+SETUP_LOCATION=$(pwd)
+
+cd /home/$USER_NAME
 
 sudo -u $USER_NAME zsh -l -c 'rustup install nightly'
 sudo -u $USER_NAME zsh -l -c 'rustup component add clippy'
@@ -24,3 +29,5 @@ for CARGO_PACKAGE in $(tail -n +3 $DOTFILES_LOCATION/cargo.txt)
 do
     sudo -u $USER_NAME zsh -l -c 'cargo install $CARGO_PACKAGE'
 done
+
+cd $SETUP_LOCATION
