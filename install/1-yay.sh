@@ -1,5 +1,7 @@
 pacman -S --needed --noconfirm base-devel git
 
+SETUP_LOCATION=$(pwd)
+
 cd /home/$USER_NAME
 
 if ! command -v yay &>/dev/null; then
@@ -9,3 +11,5 @@ if ! command -v yay &>/dev/null; then
     cd /home/$USER_NAME
     rm -rf yay-bin
 fi
+
+cd $SETUP_LOCATION

@@ -11,6 +11,6 @@ gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
 # chsh -s /usr/bin/zsh $USER_NAME
 
 sudo -u $USER_NAME sh -c "$(sudo -u $USER_NAME curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-cp dotfiles/home_dotfiles/.zsh* .
+# cp dotfiles/home_dotfiles/.zsh* .
 
 sudo -u $USER_NAME git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
