@@ -5,7 +5,7 @@ sudo -u $USER_NAME mkdir -p Desktop
 cd Desktop
 
 if [ ! -d "Rofi-Themer" ]; then
-    sudo -u $USER_NAME git clone https://github.com/IVSOP/Rofi-Themer.git
+    sudo -u $USER_NAME git clone --recurse-submodules https://github.com/IVSOP/Rofi-Themer.git
 else
     echo "dotfiles/ already exists. Skipping clone."
 fi

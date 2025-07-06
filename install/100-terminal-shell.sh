@@ -3,8 +3,7 @@
 # this is last because installing oh my zsh changes the shell
 
 sudo -u $USER_NAME yay -S --noconfirm --needed \
-    alacritty \
-    zsh \
+    alacritty
 
 echo "Setting default terminal in gsettings"
 gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
