@@ -5,6 +5,6 @@ sudo -u $USER_NAME yay -S --noconfirm --needed \
     gnupg wget curl jq openssh sshfs btop \
     htop ripgrep gvfs gvfs-dnssd fend fzf \
     fd zip unzip gdu amdgpu_top imagemagick \
-    cloudflare-warp-bin zulucrypt tree
+    cloudflare-warp-bin zulucrypt tree exa
 
 systemctl disable warp-svc

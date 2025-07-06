@@ -10,5 +10,7 @@ fi
 set -e
 
 # Install everything
-for f in install/*.sh; do source "$f"; done
-
+for f in $(\ls -v install/*.sh)
+do
+    source "$f"
+done
