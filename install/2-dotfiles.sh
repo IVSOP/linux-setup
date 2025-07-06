@@ -11,16 +11,18 @@ fi
 
 # copy all into .config
 sudo -u $USER_NAME mkdir -p .config
-cp -r dotfiles/* .config
+sudo -u $USER_NAME cp -r dotfiles/* .config
 
-# home_dotfiles and nemo should not be in .config
+# some things should not be in .config
 rm -rf .config/home_dotfiles
 rm -rf .config/nemo
+rm     .config/cargo.txt
+rm     .config/Code/User/extensions.txt
 
 # instead, they are copied somewhere else
-cp -r dotfiles/home_dotfiles/.* .
+sudo -u $USER_NAME cp -r dotfiles/home_dotfiles/.* .
 sudo -u $USER_NAME mkdir -p .local/share/applications
-cp -r dotfiles/nemo/* .local/share/applications/
+sudo -u $USER_NAME cp -r dotfiles/nemo/* .local/share/applications/
 
 sudo -u $USER_NAME update-desktop-database /home/$USER_NAME/.local/share/applications
 

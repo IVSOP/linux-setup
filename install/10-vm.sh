@@ -5,6 +5,7 @@ sudo -u $USER_NAME yay -S --noconfirm --needed \
 
 usermod -a $USER_NAME -G libvirt
 systemctl enable libvirtd.service
+systemctl start libvirtd.service
 virsh net-autostart default
 
 echo ">> IMPORTANT NOTES FOR VM INSTALLATION"
