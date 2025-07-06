@@ -1,14 +1,23 @@
-CURR_PATH=$(pwd)
+SETUP_PATH=$(pwd)
 
 cd /home/$USER_NAME
 sudo -u $USER_NAME mkdir -p Desktop
 cd Desktop
 
-git clone sudo -u $USER_NAME https://github.com/IVSOP/Rofi-Themer.git
+if [ ! -d "Rofi-Themer" ]; then
+    sudo -u $USER_NAME git clone https://github.com/IVSOP/Rofi-Themer.git
+else
+    echo "dotfiles/ already exists. Skipping clone."
+fi
+
+cd Rofi-Themer
 sudo -u $USER_NAME ./build.sh /home/$USER_NAME/Desktop/Rofi-Themer/build/Themer-socket
 cd ..
 
-Desktop/mariana/
-cd ..
+if [ ! -d "mariana" ]; then
+    sudo -u $USER_NAME git clone https://github.com/IVSOP/nvim-juliana-custom.git mariana
+else
+    echo "dotfiles/ already exists. Skipping clone."
+fi
 
-cd $CURR_PATH
+cd $SETUP_PATH
