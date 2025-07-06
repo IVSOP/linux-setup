@@ -25,6 +25,7 @@ sudo -u "$USER_NAME" bash -c '
 
 '
 
+DOTFILES_LOCATION=/home/$USER_NAME/dotfiles
 sudo -u $USER_NAME cp $DOTFILES_LOCATION/home_dotfiles/.zsh* .
 
 cd $SETUP_LOCATION

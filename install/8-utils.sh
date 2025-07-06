@@ -6,6 +6,8 @@ sudo -u $USER_NAME yay -S --noconfirm --needed \
     htop ripgrep gvfs gvfs-dnssd fend fzf \
     fd zip unzip gdu amdgpu_top imagemagick \
     cloudflare-warp-bin zulucrypt tree exa \
-    desktop-file-utils
+    desktop-file-utils borg
 
 systemctl disable warp-svc
+
+sudo -u $USER_NAME mkdir -p /home/$USER_NAME/Pictures/Screenshots
