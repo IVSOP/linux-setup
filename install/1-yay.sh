@@ -3,9 +3,9 @@ pacman -S --needed --noconfirm base-devel git
 cd /home/$USER_NAME
 
 if ! command -v yay &>/dev/null; then
-    git clone https://aur.archlinux.org/yay-bin.git
+    sudo -u $USER_NAME git clone https://aur.archlinux.org/yay-bin.git
     cd yay-bin
-    makepkg -si --noconfirm
+    sudo -u $USER_NAME makepkg -si --noconfirm
     cd /home/$USER_NAME
     rm -rf yay-bin
 fi

@@ -19,4 +19,4 @@ if ! getent group wheel >/dev/null; then
 fi
 usermod -aG wheel $USER_NAME
 
-sudo -u $USER_NAME ssh-keygen -t ed25519 -C "$USER_EMAIL"; break;;
+sudo -u $USER_NAME ssh-keygen -t ed25519 -C "$USER_EMAIL"
