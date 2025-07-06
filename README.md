@@ -270,4 +270,3 @@ git clone https://github.com/IVSOP/linux-setup
 cd linux-setup
 ./setup.sh
 ```
-
