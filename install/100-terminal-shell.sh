@@ -21,6 +21,6 @@ sudo -u $USER_NAME sh -c "$(sudo -u $USER_NAME curl -fsSL https://raw.githubuser
 
 sudo -u $USER_NAME git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 
-cp dotfiles/home_dotfiles/.zsh* .
+cp $DOTFILES_LOCATION/home_dotfiles/.zsh* .
 
 cd $SETUP_LOCATION
