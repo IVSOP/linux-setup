@@ -11,14 +11,14 @@ fi
 
 # copy all into .config
 sudo -u $USER_NAME mkdir -p .config
-cp dotfiles/* -r .config
+cp -r dotfiles/* .config
 
 # home_dotfiles and nemo should not be in .config
 rm -rf .config/home_dotfiles
 rm -rf .config/nemo
 
 # instead, they are copied somewhere else
-cp dotfiles/home_dotfiles/* .
+cp -r dotfiles/home_dotfiles/.* .
 sudo -u $USER_NAME mkdir -p .local/share/applications
 cp -r dotfiles/nemo/* .local/share/applications/
 

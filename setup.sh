@@ -12,5 +12,6 @@ set -e
 # Install everything
 for f in $(\ls -v install/*.sh)
 do
+    echo "Running $f"
     source "$f"
 done
