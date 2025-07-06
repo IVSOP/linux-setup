@@ -16,7 +16,7 @@ sudo -u $USER_NAME rustup +nightly target add wasm32-unknown-unknown && \
 sudo -u $USER_NAME rustup target add x86_64-pc-windows-gnu && \
 sudo -u $USER_NAME rustup +nightly target add x86_64-pc-windows-gnu && \
 sudo -u $USER_NAME rustup component add rustc-codegen-cranelift-preview --toolchain nightly && \
-for CARGO_PACKAGE in $(tail -n +3 dotfiles/cargo.txt)
+for CARGO_PACKAGE in $(tail -n +3 $DOTFILES_LOCATION/cargo.txt)
 do
     sudo -u $USER_NAME cargo install $CARGO_PACKAGE
 done
