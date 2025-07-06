@@ -1,6 +1,6 @@
 # Enter username and email, create user, home dir, ssh key
 
-sudo -u $USER_NAME yay -S --noconfirm --needed gum openssh
+pacman -S --noconfirm --needed gum openssh
 
 echo -e "\nEnter your info"
 export REAL_NAME=$(gum input --placeholder "Enter real name" --prompt "Real name> ")
