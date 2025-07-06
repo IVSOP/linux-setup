@@ -1,5 +1,15 @@
 # Install arch. This is just a normal installation following the guides, but with a more complicated filesystem setup, which is why I prefer to do things manually
 
+# Prerequisites:
+
+At least 1h of time to allow troublheshooting
+
+Ethernet, to speed up things
+
+Secure boot disabled
+
+Have the partition layout already planned out
+
 ## Connect to the internet
 
 Ensure you are connected: `ip link` and `ping archlinux.org`
@@ -57,6 +67,22 @@ Create logical volume for root: `lvcreate -l 100%FREE -n root <lvm_group_name>` 
 
 `mount <efi> /mnt/boot/efi`
 
+## Pacstrap
+
+`pacman -Sy archlinux-keyring`
+
+**NOTE:** If you have an intel cpu, replace `amd-ucode` with `intel-ucode`
+
+`pacstrap -K /mnt base linux linux-firmware sudo neovim networkmanager amd-ucode grub efibootmgr less openssh lvm2 os-prober ntfs-3g`
+
+## Fstab
+
+`genfstab -U /mnt >> /mnt/etc/fstab`
+
+## Chroot
+
+`arch-chroot /mnt`
+
 ## Setup pacman
 
 Mirrors (yours might be different, run reflector, the command is listed here)
@@ -83,19 +109,7 @@ Server = http://arch.niranjan.co/$repo/os/$arch
 
 Parallel downloads and multilib:
 
-edit `/etc/pacman.conf`, uncomment multilib and set ParallelDownloads to 5 
-
-## Pacstrap
-
-`pacstrap -K /mnt base linux linux-firmware sudo neovim networkmanager amd-ucode grub efibootmgr less openssh lvm2 os-prober`
-
-## Fstab
-
-`genfstab -U /mnt >> /mnt/etc/fstab`
-
-## Chroot
-
-`arch-chroot /mnt`
+edit `/etc/pacman.conf`, uncomment multilib and set ParallelDownloads to 5
 
 ## Time zone and hwclock
 
@@ -113,7 +127,7 @@ edit /etc/locale.gen, uncomment en_US.UTF-8
 
 ## Set network hostname
 
-`cat <hostname> > /etc/hostname`
+`echo <hostname> > /etc/hostname`
 
 ## Root password
 
@@ -137,7 +151,7 @@ Check that /boot and /boot/efi are properly mounted
 
 Use `blkid` to get the UUID of the partitions your encrypted partitions are built upon (not the encrypted partitions themselves, but the physical device!!! I have no idea why it is like this)
 
-Edit grub's config. For example, for the ids
+Edit grub's config (`/etc/default/grub). For example, for the ids
 
 ```
 crypt_0: e48a8a1d-6c93-4719-b140-4a5e59f931c5
@@ -164,23 +178,53 @@ Also, add two \n at the bottom (don't ask) just in case
 
 ## Final setup
 
+Needed for some initcpio module, don't ask: `touch /etc/vconsole.conf`
+
 `mkinitcpio -P`
 
 `grub-mkconfig -o /boot/grub/grub.cfg`
 
 `systemctl enable NetworkManager`
 
-Vefiry that grub created an entry for arch linux before rebooting!!!!!
+**Warning**: if you have windows, you will need to mount its partition so that os-prober can detect it. For example:
+```
+lsblk # see where windows partition is (the basic data partition, not some weird efi partition or anything)
+mount /dev/.... windows --mkdir
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# if successful, it will say windows has been added
+umount windows
+rm -r windows
+```
+
+Verify that grub created an entry for arch linux before rebooting!!!!!
 
 ## Reboot, and use `setup.sh` when you come back in
 
-# After reboot
+# After first reboot
 
 ## Login as root
 
+Enter `root` and then the password when prompted
+
+## Setup secure boot
+
+Using sbctl: `pacman -S sbctl`
+
+Might as well do it now since you might break something. See [https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Assisted_process_with_sbctl](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Assisted_process_with_sbctl)
+
+Basic steps are:
+
+- reboot in setup mode
+- create keys
+- enroll keys
+- sign files
+- setup a hook for auto signing
+
+
 ## Edit sudoers file
 
-Add this to sudoers. I left if the surrounding text. It is at the bottom of the file. Use `visudo`
+Add this to sudoers with `visudo`. I left if the surrounding text. It is at the bottom of the file. Use `visudo`
 
 ```
 ##
