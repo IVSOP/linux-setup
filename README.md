@@ -21,17 +21,20 @@ If you need wifi, use `iwctl`
 
 ## Format disks
 
-Warning: if you have windows, an efi partition already exists and you don't need to make a new one
+**Warning:** if you have windows, an efi partition already exists and you don't need to touch it ever appart from mounting it
 
-Use `fdisk`
+Use `fdisk -l` and `lsblk` to see your partition layout
 
-Boot: 512M
+You can then change partitions of a disk by using `fdisk <path to disk>`
 
-efi: 100M, set the type to EFI System
+Boot: make a partition with 512M
+
+efi: make a partition with 100M, set the type to EFI System
 
 ## Make filesystems for boot
 
-Efi should be fat32, boot can be ext4
+(see warning above) Efi should be fat32: `mkfs.vfat -F 32 -n EFI <path>`
+Boot can be ext4: `mkfs.ext4 <path>`
 
 Do not mount anything yet
 
@@ -196,6 +199,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 umount windows
 rm -r windows
 ```
+
+**Warning 2**: this might not work when running in the arch installation. If it doesn't, run it again after rebooting, and you should see that windows is listed
 
 Verify that grub created an entry for arch linux before rebooting!!!!!
 
