@@ -1,4 +1,4 @@
-# Install arch. This is just a normal installation following the guides, but with a more complicated filesystem setup, which is why I prefer to do things manually
+# First, install arch. Follow this guide to get a normal installation similar to the official guides, but with a more complicated filesystem setup, which is why I prefer to do things manually
 
 # Prerequisites:
 
