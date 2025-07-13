@@ -6,7 +6,8 @@ sudo -u $USER_NAME yay -S --noconfirm --needed \
     htop ripgrep gvfs gvfs-dnssd fend fzf \
     fd zip unzip gdu amdgpu_top imagemagick \
     cloudflare-warp-bin zulucrypt tree exa \
-    desktop-file-utils borg openbsd-netcat
+    desktop-file-utils borg openbsd-netcat \
+    chafa yazi
 
 systemctl disable warp-svc
 
