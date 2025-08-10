@@ -2,7 +2,7 @@ sudo -u $USER_NAME yay -S --noconfirm --needed \
     base-devel gcc cmake gdb valgrind glew git \
     nodejs npm visual-studio-code-bin lazydocker \
     python typst docker mongodb-bin mongosh-bin \
-    docker-compose
+    docker-compose neovim
 
 systemctl disable docker
 systemctl disable mongodb
