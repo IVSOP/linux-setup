@@ -7,7 +7,8 @@ sudo -u $USER_NAME yay -S --noconfirm --needed \
     fd zip unzip gdu amdgpu_top imagemagick \
     cloudflare-warp-bin zulucrypt tree exa \
     desktop-file-utils borg openbsd-netcat \
-    chafa yazi somo impala duf wdisplays age
+    chafa yazi somo impala duf wdisplays age \
+    veracrypt
 
 systemctl disable warp-svc
 
