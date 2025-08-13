@@ -17,7 +17,7 @@ sudo -u $USER_NAME cp -r dotfiles/* .config
 rm -rf .config/home_dotfiles
 rm -rf .config/nemo
 rm     .config/cargo.txt
-rm     .config/Code/User/extensions.txt
+# rm     ".config/Code - OSS/User/extensions.txt"
 
 # instead, they are copied somewhere else
 sudo -u $USER_NAME cp -r dotfiles/home_dotfiles/.* .

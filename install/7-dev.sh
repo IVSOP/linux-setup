@@ -1,6 +1,6 @@
 sudo -u $USER_NAME yay -S --noconfirm --needed \
     base-devel gcc cmake gdb valgrind glew git \
-    nodejs npm visual-studio-code-bin lazydocker \
+    nodejs npm code lazydocker \
     python typst docker mongodb-bin mongosh-bin \
     docker-compose neovim
 
