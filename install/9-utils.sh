@@ -6,9 +6,9 @@ sudo -u $USER_NAME yay -S --noconfirm --needed \
     htop ripgrep gvfs gvfs-dnssd fend fzf \
     fd zip unzip gdu amdgpu_top imagemagick \
     cloudflare-warp-bin zulucrypt tree exa \
-    desktop-file-utils borg openbsd-netcat \
+    desktop-file-utils restic openbsd-netcat \
     chafa yazi duf wdisplays age veracrypt \
-    pandoc-bin
+    pandoc-bin backrest
 
 systemctl disable warp-svc
 
