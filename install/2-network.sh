@@ -9,6 +9,9 @@ systemctl enable  --now ufw
 ufw-docker install
 
 # for some reason ufw does not remove the default config, which basically restricts everything
-sudo nft delete table inet filter
+# nft delete table inet filter
+mv /etc/nftables.conf /etc/nftables-backup.conf
+touch /etc/nftables.conf
 
 systemctl restart ufw
+
