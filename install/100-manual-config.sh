@@ -10,8 +10,6 @@ echo "Background: the background images are personal and not shared in my dotfil
 
 echo "something in media.sh is broken since there is still no WM when installing - might need to run it manually 'USER_NAME=\$(logname) ./install/4-media.sh', after loggin in with a GUI"
 
-echo "The next step will change your shell, and block the script from finishing. So, please manually run post_setup.sh after rebooting"
-
 echo "================================"
 
 gum input --placeholder "Press Enter to continue after you have read this"

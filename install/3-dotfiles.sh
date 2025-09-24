@@ -8,6 +8,8 @@ else
     echo "dotfiles/ already exists. Skipping clone."
 fi
 
+sudo -u $USER_NAME yay -S --needed --noconfirm desktop-file-utils
+
 
 # copy all into .config
 sudo -u $USER_NAME mkdir -p .config

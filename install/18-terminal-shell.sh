@@ -15,7 +15,7 @@ cd /home/$USER_NAME
 
 sudo -u $USER_NAME RUNZSH="no" sh -c "$(sudo -u $USER_NAME curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-sudo -u $USER_NAME git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+sudo -u $USER_NAME git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-/home/$USER_NAME/.oh-my-zsh/custom}/plugins/fzf-tab
 
 sudo -u $USER_NAME cp $DOTFILES_LOCATION/home_dotfiles/.zsh* .
 

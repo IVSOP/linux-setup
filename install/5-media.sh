@@ -1,7 +1,8 @@
-sudo -u $USER_NAME yay -S --noconfirm --needed \
+echo "CHOOSE YES IF ASKED TO DELETE JACK"
+sudo -u $USER_NAME yay -S --needed \
     mpv nemo nemo-fileroller ffmpegthumbnailer \
     pipewire pipewire-pulse pipewire-alsa pipewire-jack \
-    pavucontrol bluez bluez-utils blueman mediainfo bluetoothctl
+    pavucontrol bluez bluez-utils blueman mediainfo
 
 # nemo settings
 sudo -u $USER_NAME gsettings set org.nemo.preferences executable-text-activation 'display'

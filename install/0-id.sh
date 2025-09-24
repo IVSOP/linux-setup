@@ -11,7 +11,7 @@ export USER_EMAIL=$(gum input --placeholder "Enter email address" --prompt "Emai
 echo "email: $USER_EMAIL"
 
 if ! id -u $USER_NAME >/dev/null 2>&1; then
-    useradd -g mygroup $USER_NAME
+    useradd -m $USER_NAME
 fi
 passwd $USER_NAME
 if ! getent group wheel >/dev/null; then
