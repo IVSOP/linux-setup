@@ -220,11 +220,21 @@ Might as well do it now since you might break something. See [https://wiki.archl
 
 Basic steps are:
 
-- reboot in setup mode
+- disable secure boot in bios (should already be disabled)
+- enter setup mode in bios
+    for me, this meant deleting all keys. you might only have to delete platform key, or all keys except dbx
+- boot into linux
+    check if setup mode worked by using `sbctl status`
 - create keys
+    `sbctl create-keys`
 - enroll keys
+    `sbctl enroll-keys -m`
 - sign files
+    `sbctl verify | sed 's/✗ /sbctl sign -s /e'`
+
+    `sbctl sign -s /boot/vmlinuz-linux`
 - setup a hook for auto signing
+    ??
 
 
 ## Edit sudoers file

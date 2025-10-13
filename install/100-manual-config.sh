@@ -10,6 +10,10 @@ echo "Background: the background images are personal and not shared in my dotfil
 
 echo "something in media.sh is broken since there is still no WM when installing - might need to run it manually 'USER_NAME=\$(logname) ./install/4-media.sh', after loggin in with a GUI"
 
+echo "rust gets installed AGAIN through pacman for some reason, uninstall it"
+
+echo "install ufw-docker if using iptables"
+
 echo "================================"
 
 gum input --placeholder "Press Enter to continue after you have read this"
