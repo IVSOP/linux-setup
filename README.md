@@ -220,6 +220,12 @@ Might as well do it now since you might break something. See [https://wiki.archl
 
 Basic steps are:
 
+- install grub correctly
+    `grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --modules="tpm" --disable-shim-lock`
+    
+    `grub-mkconfig -o /boot/grub/grub.cfg`
+
+    `mkinitcpio -P`
 - disable secure boot in bios (should already be disabled)
 - enter setup mode in bios
     for me, this meant deleting all keys. you might only have to delete platform key, or all keys except dbx

@@ -10,4 +10,5 @@ sudo -u $USER_NAME yay -S --noconfirm --needed \
     xorg-xwayland xdg-desktop-portal-gtk swaybg waybar grim \
     swaylock swayidle wlprop wl-clipboard hyprpicker slurp satty
 
-systemctl enable ly.service
+systemctl enable ly@tty1.service
+
