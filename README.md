@@ -236,9 +236,13 @@ Basic steps are:
 - enroll keys
     `sbctl enroll-keys -m`
 - sign files
-    `sbctl verify | sed 's/✗ /sbctl sign -s /e'`
+    `sbctl sign-all`
+
+    <!-- maybe `sbctl verify | sed 's/✗ /sbctl sign -s /e'`? -->
 
     `sbctl sign -s /boot/vmlinuz-linux`
+
+    `sbctl verify`
 - setup a hook for auto signing
     ??
 
